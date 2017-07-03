@@ -1,6 +1,6 @@
 "# PhpBasicMvcApp"
 
-Unfortenetaly I can not set a Demo.
+Unfortunately I can not set a Demo.
 Github Pages is not a full-featured web host. It will not execute PHP. 
 
 
