@@ -1,20 +1,18 @@
 <?php
   class ProductsController {
-    public function index() {
-      // we store all the products in a variable
-      $products = Product::all();
-      require_once('views/products/index.php');
+    public function allProducts() {
+      //get products
+      $products = Product::selectAll();
+      require_once('views/products/list.php');
     }
 
-    public function show() {
-      // we expect a url of form ?controller=products&action=show&id=x
-      // without an id we just redirect to the error page as we need the post id to find it in the database
+    // ?controller=products&action=byId&id=x
+    public function byId() {
       if (!isset($_GET['id']))
         return call('pages', 'error');
 
-      // we use the given id to get the right post
-      $product = Product::find($_GET['id']);
-      require_once('views/products/show.php');
+      $product = Product::selectById($_GET['id']);
+      require_once('views/products/byId.php');
     }
   }
 ?>
